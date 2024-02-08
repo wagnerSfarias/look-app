@@ -1,12 +1,10 @@
 import React from 'react';
-
-import { colors } from '../../styles/theme.json';
 import { Box, Touchable, Cover, Text } from '../index';
 
-export default function Story() {
-  const url =
-    'https://assets.ype.ind.br/uploads/roupas-de-malha_ypedia-scaled.jpg';
+import { colors } from '../../styles/theme.json';
+import moment from 'moment';
 
+export default function Story({ story }) {
   return (
     <Touchable
       background="black"
@@ -15,7 +13,7 @@ export default function Story() {
       width="150px"
       spacing="0px 5px 0px"
     >
-      <Cover image={url} wdt="100%" hgt="100%">
+      <Cover image={story?.cover} wdt="100%" hgt="100%">
         <Box
           fluid
           hasPadding
@@ -27,14 +25,14 @@ export default function Story() {
             wdt="40px"
             hgt="40px"
             border={`1px solid ${colors.light}`}
-            image={url}
+            image={story?.owner?.photo}
           />
           <Box height="50px" justify="flex-end">
             <Text bold color="light">
-              MariaTadeu
+              {story?.owner?.username}
             </Text>
             <Text color="light" variant="small">
-              2 mins ago
+              {moment(story?.createdAt).fromNow()}
             </Text>
           </Box>
         </Box>

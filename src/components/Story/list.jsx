@@ -1,9 +1,9 @@
 import React from 'react';
-
-import Story from '.';
 import { Box, Text, ScrollView } from '../index';
 
-export default function StoryList() {
+import Story from './index';
+
+export default function StoryList({ stories }) {
   return (
     <Box fluid>
       <Box row fluid justify="space-between" height="60px" hasPadding>
@@ -15,8 +15,8 @@ export default function StoryList() {
         </Text>
       </Box>
       <ScrollView horizontal>
-        {Array.from(Array(10))?.map((item, index) => (
-          <Story key={index} />
+        {stories?.map((story, index) => (
+          <Story key={index} story={story} />
         ))}
       </ScrollView>
     </Box>
