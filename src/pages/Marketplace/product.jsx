@@ -1,8 +1,4 @@
-import React from 'react';
-import { StretchyScrollView } from 'react-native-stretchy';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
-
-import Header from '../../components/Header';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Touchable,
   Box,
@@ -11,62 +7,75 @@ import {
   Spacer,
   Button
 } from '../../components/index';
+
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import { StretchyScrollView } from 'react-native-stretchy';
+import Header from '../../components/Header';
 import Picker from '../../components/Picker';
+
 import { colors } from '../../styles/theme.json';
 import util from '../../util';
+import { AppContext } from '../../contexts/app';
 
-export default function Product() {
-  const url =
-    'https://assets.ype.ind.br/uploads/roupas-de-malha_ypedia-scaled.jpg';
+export default function Product({ navigation, route }) {
+  const { product } = route?.params;
+  const [size, setSize] = useState(null);
+
+  const { addToCart } = useContext(AppContext);
+
+  useEffect(() => {
+    setSize(product?.sizes?.[0]?.value);
+  }, [product]);
+
   return (
     <>
       <Header
-        title="Striped Cardigan"
+        title={product?.title}
         goBack
         right={() => (
-          <Touchable hasPadding width="70px" onPress={() => alert('teste')}>
+          <Touchable
+            hasPadding
+            width="70px"
+            onPress={() => navigation.navigate('Cart')}
+          >
             <Icon name="bag" size={20} />
           </Touchable>
         )}
       />
       <StretchyScrollView
-        image={{ uri: url }}
+        image={{ uri: product?.cover }}
         imageHeight={300}
         imageOverlay={<Box background={util.toAlpha(colors.dark, 40)} />}
         foreground={
           <Box hasPadding justify="flex-end">
             <Title bold color="light">
-              $1080
+              {product?.price}
             </Title>
           </Box>
         }
       >
         <Box hasPadding background="light">
-          <Text color="black">Shirt</Text>
+          <Text color="black">{product?.type}</Text>
           <Spacer size="20px" />
-          <Title color="black">A.P.C Collection Spring 2015</Title>
+          <Title color="black">{product?.title}</Title>
           <Spacer size="30px" />
-          <Text color="black">
-            I'm still trying to improve the codebase of this package so if you
-            have any idea in terms of the structure, features or anything else,
-            please let me know by whether sending a PR or open an issue and
-            start a discuession. I really appreciate that. 😉
-          </Text>
+          <Text color="black">{product?.description}</Text>
           <Spacer size="30px" />
           <Picker
             title="Size"
-            options={[
-              { label: 'P', value: 'P' },
-              { label: 'M', value: 'M' },
-              { label: 'G', value: 'G' },
-              { label: 'XG', value: 'XG' }
-            ]}
-            initialValue="M"
-            onChange={(item) => alert(item)}
+            options={product?.sizes}
+            initialValue={product?.sizes?.[0]?.value}
+            onChange={(value) => setSize(value)}
           />
           <Spacer size="30px" />
 
-          <Button block>
+          <Button
+            block
+            onPress={() => {
+              addToCart({ ...product, size });
+              navigation.navigate('Cart');
+            }}
+          >
             <Text color="light">Add to Card</Text>
           </Button>
         </Box>
