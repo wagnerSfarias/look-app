@@ -1,14 +1,17 @@
 import React from 'react';
+import { Box, Spacer } from '../index';
 
-import Post from '.';
-import { Box } from '../index';
+import Post from './index';
 
-export default function PostList() {
+export default function PostList({ posts }) {
   return (
-    <Box>
-      {Array.from(Array(5))?.map((item, index) => (
-        <Post key={index} />
-      ))}
-    </Box>
+    <>
+      <Box style={{ minWidth: '100%' }}>
+        {posts?.map((post, index) => (
+          <Post key={index} post={post} />
+        ))}
+      </Box>
+      <Spacer size="30px" />
+    </>
   );
 }
