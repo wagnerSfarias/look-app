@@ -1,18 +1,15 @@
 import React from 'react';
 
-import Category from '.';
-import { ScrollView } from '../../components';
+import Category from './index';
+import { ScrollView, Spacer } from '../../components';
 
-export default function CategoryList() {
+export default function CategoryList({ categories }) {
   return (
     <ScrollView hasPadding>
-      {Array.from(Array(5))?.map((item, index) => (
-        <Category
-          key={index}
-          title={`Category ${index}`}
-          description="123 items"
-        />
+      {categories?.map((category, index) => (
+        <Category key={index} category={category} />
       ))}
+      <Spacer size="30px" />
     </ScrollView>
   );
 }

@@ -1,24 +1,22 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-
 import { Touchable, Cover, Title, Text, Spacer, Box } from '../../components';
+
+import { useNavigation } from '@react-navigation/native';
 import { colors } from '../../styles/theme.json';
 import util from '../../util';
 
-export default function Category({ title, description }) {
-  const url =
-    'https://assets.ype.ind.br/uploads/roupas-de-malha_ypedia-scaled.jpg';
+export default function Category({ category }) {
   const { navigate } = useNavigation();
 
   return (
     <Touchable
-      onPress={() => navigate('Category')}
+      onPress={() => navigate('Category', { category })}
       width="100%"
       height="180px"
       radius="10px"
       spacing="10px 0px"
     >
-      <Cover wdt="100%" hgt="100%" image={url}>
+      <Cover wdt="100%" hgt="100%" image={category?.cover}>
         <Box
           width="100%"
           justify="center"
@@ -27,10 +25,10 @@ export default function Category({ title, description }) {
           background={util.toAlpha(colors.black, 50)}
         >
           <Title color="light" bold>
-            {title}
+            {category?.title}
           </Title>
           <Spacer />
-          <Text color="light">{description}</Text>
+          <Text color="light">{category?.items} ITEMS</Text>
         </Box>
       </Cover>
     </Touchable>
