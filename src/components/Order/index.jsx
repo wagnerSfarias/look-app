@@ -1,11 +1,30 @@
+import React from 'react';
 import { Box, Spacer, Text, Title } from '../index';
 
 import Icon from '@expo/vector-icons/SimpleLineIcons';
 
 import { colors } from '../../styles/theme.json';
 import util from '../../util';
+import moment from 'moment';
 
-export default function Order() {
+export default function Order({ order }) {
+  const stepEnum = {
+    waiting: {
+      icon: 'clock',
+      color: 'warning'
+    },
+    delivered: {
+      icon: 'check',
+      color: 'secondary'
+    },
+    canceled: {
+      icon: 'close',
+      color: 'danger'
+    }
+  };
+
+  const stepData = stepEnum[order?.step];
+
   return (
     <>
       <Box border={`1px solid ${util.toAlpha(colors.muted, 50)}`} radius="5px">
@@ -20,12 +39,16 @@ export default function Order() {
           }}
         >
           <Box row align="center">
-            <Icon name="check" size={16} color={colors.secondary} />
-            <Text color="secondary" spacing="0px 0px 0px 5px">
-              DELIVERED
+            <Icon
+              name={stepData.icon}
+              size={16}
+              color={colors[stepData.color]}
+            />
+            <Text color={stepData.color} spacing="0px 0px 0px 5px">
+              {order.step?.toUpperCase()}
             </Text>
           </Box>
-          <Text>August 17, 2016 3:58 PM</Text>
+          <Text>{moment(order?.createdAt).format('DD/MM/YYYY HH:mm')}</Text>
         </Box>
 
         <Box
@@ -36,26 +59,26 @@ export default function Order() {
             borderColor: util.toAlpha(colors.muted, 50)
           }}
         >
-          <Title variant="small"> Order Nº 1947034</Title>
+          <Title variant="small"> Order Nº {order?.orderNumber}</Title>
           <Spacer />
           <Text>
             Tracking number:
-            <Text color="dark">IW34754353455</Text>
+            <Text color="dark">{order?.trackingNumber}</Text>
           </Text>
         </Box>
-        <Box hasPadding row justify="space-between" width="100%">
-          <Text>
-            VALUE OF ITEMS
+        <Box row spacing="10px 0px" justify="space-between" width="100%">
+          <Box align="center">
+            <Text>VALUE OF ITEMS</Text>
             <Text color="dark" bold>
-              $66,60
+              ${order?.totalValue}
             </Text>
-          </Text>
-          <Text>
-            Quantity:
+          </Box>
+          <Box align="center">
+            <Text>Quantity:</Text>
             <Text color="dark" bold>
-              3
+              {order?.totalItems}
             </Text>
-          </Text>
+          </Box>
         </Box>
       </Box>
       <Spacer />
