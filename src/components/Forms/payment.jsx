@@ -1,14 +1,15 @@
 import { useRef, useState, useEffect } from 'react';
 import { Box, Input, Spacer, Text, Title, Touchable } from '..';
+
 import SegmentedPicker from 'react-native-segmented-picker';
 
 export default function PaymentForm({ onChange = (creditCard) => {} }) {
   const pickerRef = useRef(null);
 
   const [data, setData] = useState({
-    holderName: '',
+    holder_name: '',
     number: '',
-    validDate: '',
+    valid_date: '',
     cvv: ''
   });
 
@@ -20,25 +21,36 @@ export default function PaymentForm({ onChange = (creditCard) => {} }) {
     <>
       <SegmentedPicker
         ref={pickerRef}
-        onConfirm={(data) =>
+        onConfirm={(validDate) =>
           setData({
             ...data,
-            validDate: `${data.mounth}/${data.year}`
+            valid_date: `${validDate.mounth}/${validDate.year}`
           })
         }
         options={[
           {
             key: 'mounth',
             items: [
-              { label: 'Option 1', value: 'option_1' },
-              { label: 'Option 2', value: 'option_2' }
+              { label: 'January', value: '1' },
+              { label: 'February', value: '2' },
+              { label: 'March', value: '3' },
+              { label: 'April', value: '4' },
+              { label: 'May', value: '5' },
+              { label: 'June', value: '6' },
+              { label: 'July', value: '7' },
+              { label: 'August', value: '8' },
+              { label: 'September', value: '9' },
+              { label: 'October', value: '10' },
+              { label: 'November', value: '11' },
+              { label: 'December', value: '12' }
             ]
           },
           {
             key: 'year',
             items: [
-              { label: 'Option 1', value: 'option_1' },
-              { label: 'Option 2', value: 'option_2' }
+              { label: '2025', value: '2025' },
+              { label: '2026', value: '2026' },
+              { label: '2027', value: '2027' }
             ]
           }
         ]}
@@ -50,11 +62,11 @@ export default function PaymentForm({ onChange = (creditCard) => {} }) {
         <Spacer size="20px" />
         <Input
           placeholder="Holder Name"
-          value={data.holderName}
-          onChangeText={(holderName) =>
+          value={data.holder_name}
+          onChangeText={(holder_name) =>
             setData({
               ...data,
-              holderName
+              holder_name
             })
           }
         />
@@ -62,6 +74,7 @@ export default function PaymentForm({ onChange = (creditCard) => {} }) {
         <Input
           placeholder="Credit Card Number"
           value={data.number}
+          inputMode="numeric"
           onChangeText={(number) =>
             setData({
               ...data,
@@ -71,13 +84,20 @@ export default function PaymentForm({ onChange = (creditCard) => {} }) {
         />
         <Spacer />
         <Touchable width="100%" onPress={() => pickerRef.current.show()}>
-          <Input editable={false} placeholder="09/2025" pointerEvents="none" />
+          <Input
+            value={data.valid_date}
+            editable={false}
+            placeholder="09/2025"
+            pointerEvents="none"
+          />
         </Touchable>
         <Spacer />
         <Box row align="center">
           <Box spacing="0px 10px 0px 0px">
             <Input
               placeholder="CVV"
+              inputMode="numeric"
+              maxLength={3}
               value={data.cvv}
               onChangeText={(cvv) =>
                 setData({
@@ -89,7 +109,7 @@ export default function PaymentForm({ onChange = (creditCard) => {} }) {
           </Box>
           <Box>
             <Text variant="small">
-              3 or 4 digits usually found on the signature strip
+              3 or 4 digits usually found on the signature strip.
             </Text>
           </Box>
         </Box>
