@@ -49,7 +49,7 @@ export default function Product({ navigation, route }) {
         foreground={
           <Box hasPadding justify="flex-end">
             <Title bold color="light">
-              {product?.price}
+              ${product?.price}
             </Title>
           </Box>
         }

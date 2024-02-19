@@ -48,7 +48,7 @@ export default function Product({ product, selected }) {
           </Box>
         )}
         <Box row width="100%" justify="space-between">
-          <Text color="dark">{product?.price}</Text>
+          <Text color="dark">$ {product?.price}</Text>
           <Text color="danger" bold>
             {selected ? 'remove' : 'Add to cart'}
           </Text>
