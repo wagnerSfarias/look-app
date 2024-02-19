@@ -118,7 +118,8 @@ export const Cover = styled.ImageBackground.attrs((props) => ({
 export const Text = styled.Text.attrs((props) => ({
   onPress: props.onPress
 }))`
-  color: ${(props) => colors[props.color || 'muted']};
+  color: ${(props) =>
+    props.color ? colors[props.color] || props.color : colors['muted']};
   letter-spacing: -0.6px;
   font-size: ${(props) => fonts.text.sizes[props.variant || 'normal']};
   font-weight: ${(props) => (props.bold ? 'bold' : 'normal')};
@@ -133,4 +134,9 @@ export const Text = styled.Text.attrs((props) => ({
         ? '20px'
         : '20px 20px 0 20px'
       : '0px'};
+
+  /* background-color: ${(props) =>
+    props.background
+      ? colors[props.background] || props.background
+      : 'transparent'}; */
 `;
