@@ -31,6 +31,7 @@ const ContextProvider = ({ children }) => {
         user,
         setUser,
         cart,
+        setCart,
         addToCart,
         removeFromCart,
         DISCOUNT_PERCENTAGE,
