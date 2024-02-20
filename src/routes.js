@@ -1,15 +1,16 @@
+import React from 'react';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItemList
 } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import React from 'react';
+
 import Icon from '@expo/vector-icons/SimpleLineIcons';
 
 import { colors } from '../src/styles/theme.json';
-import { Title } from './components';
+import { Title, Touchable, Text } from './components';
 import Feed from './pages/Feed';
 import Home from './pages/Home';
 import Marketplace from './pages/Marketplace';
@@ -21,17 +22,36 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 
 import util from './util';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerComponent = (props) => {
+  const { navigate } = useNavigation();
+
   return (
     <DrawerContentScrollView {...props}>
       <Title bold color="light" hasPadding>
         LOOKUP
       </Title>
       <DrawerItemList {...props} />
+      <Touchable
+        row
+        justify="center"
+        align="center"
+        fluid
+        spacing="10px 0px"
+        onPress={() => {
+          AsyncStorage.clear();
+          navigate('Home');
+        }}
+      >
+        <Icon name="logout" color={util.toAlpha(colors.light, 60)} size={20} />
+        <Text hasPadding color={util.toAlpha(colors.light, 60)}>
+          Sair
+        </Text>
+      </Touchable>
     </DrawerContentScrollView>
   );
 };
