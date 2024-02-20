@@ -44,7 +44,7 @@ export default function Order({ order }) {
               size={16}
               color={colors[stepData.color]}
             />
-            <Text color={stepData.color} spacing="0px 0px 0px 5px">
+            <Text color={stepData.color} spacing="0px 0px 0px 5px" bold>
               {order.step?.toUpperCase()}
             </Text>
           </Box>
