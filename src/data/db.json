@@ -1,157 +1,434 @@
 {
-    "users": [
+  "users": [
+    {
+      "name": "Administrador",
+      "email": "adm@teste.com",
+      "password": "123",
+      "id": "1"
+    },
+    {
+      "name": "Wagner Silva",
+      "email": "wagner@teste.com",
+      "password": "123",
+      "id": "2"
+    }
+  ],
+  "feed": {
+    "stories": [
       {
         "id": 1,
-        "name": "Administrador",
-        "email": "adm@teste.com",
-        "password": "123"
+        "cover": "http://tinyurl.com/48kwe3sv",
+        "owner": {
+          "username": "Administrador",
+          "photo": "http://tinyurl.com/48kwe3sv"
+        },
+        "createdAt": "2024-01-21T12:32"
       },
       {
         "id": 2,
-        "name": "Wagner Silva",
-        "email": "wagner@teste.com",
-        "password": "123"
+        "cover": "http://tinyurl.com/5ya4bfxb",
+        "owner": {
+          "username": "wagner",
+          "photo": "http://tinyurl.com/5ya4bfxb"
+        },
+        "createdAt": "2024-01-21T12:32"
+      },
+      {
+        "id": 3,
+        "cover": "http://tinyurl.com/ym8zz8eb",
+        "owner": {
+          "username": "maria12",
+          "photo": "http://tinyurl.com/ym8zz8eb"
+        },
+        "createdAt": "2024-01-21T12:32"
       }
     ],
-    "feed": {
-      "stories": [
+    "posts": [
+      {
+        "id": 1,
+        "cover": "http://tinyurl.com/4cykuvab",
+        "description": "Interview: Shoe Designer John Fluevog On New Book, Spirituality And ‘Slow Fashion’",
+        "isLiked": true,
+        "likeInfos": {
+          "photos": [
+            "https://picsum.photos/50",
+            "https://picsum.photos/50",
+            "https://picsum.photos/50"
+          ],
+          "description": "Liked by 10,098"
+        },
+        "owner": {
+          "username": "Administrador",
+          "photo": "http://tinyurl.com/48kwe3sv"
+        },
+        "createdAt": "2023-12-29T12:32"
+      },
+      {
+        "id": 2,
+        "cover": "http://tinyurl.com/mt3fp766",
+        "description": "Interview: Shoe Designer John Fluevog On New Book, Spirituality And ‘Slow Fashion’",
+        "isLiked": true,
+        "likeInfos": {
+          "photos": [
+            "https://picsum.photos/50",
+            "https://picsum.photos/50",
+            "https://picsum.photos/50"
+          ],
+          "description": "Liked by 10,098"
+        },
+        "owner": {
+          "username": "wagner",
+          "photo": "http://tinyurl.com/5ya4bfxb"
+        },
+        "createdAt": "2023-12-29T12:32"
+      },
+      {
+        "id": 3,
+        "cover": "https://picsum.photos/500",
+        "description": "Interview: Shoe Designer John Fluevog On New Book, Spirituality And ‘Slow Fashion’",
+        "isLiked": true,
+        "likeInfos": {
+          "photos": [
+            "https://picsum.photos/50",
+            "https://picsum.photos/50",
+            "https://picsum.photos/50"
+          ],
+          "description": "Liked by 10,098"
+        },
+        "owner": {
+          "username": "maria12",
+          "photo": "http://tinyurl.com/ym8zz8eb"
+        },
+        "createdAt": "2023-12-29T12:32"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "1",
+      "cover": "http://tinyurl.com/yc24p437",
+      "title": "Women",
+      "items": 1232
+    },
+    {
+      "id": "2",
+      "cover": "http://tinyurl.com/27wvf9de",
+      "title": "Men",
+      "items": 1232
+    },
+    {
+      "id": "3",
+      "cover": "http://tinyurl.com/4meer5d5",
+      "title": "Kids",
+      "items": 1232
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "Lilac Dress",
+      "price": 299,
+      "brand": "My Brand",
+      "cover": "http://tinyurl.com/yc3mehhk",
+      "categoryId": 1,
+      "type": "Dress",
+      "description": "Lilac silk dress, great for sunny days.",
+      "sizes": [
         {
-          "id": 1,
-          "cover": "https://picsum.photos/500",
-          "owner": {
-            "username": "teste123",
-            "photo": "https://picsum.photos/50"
-          },
-          "createdAt": "2022-04-21T12:32"
-        }
-      ],
-      "posts": [
+          "label": "P",
+          "value": "P"
+        },
         {
-          "id": 1,
-          "cover": "https://picsum.photos/500",
-          "description": "Interview: Shoe Designer John Fluevog On New Book, Spirituality And ‘Slow Fashion’",
-          "isLiked": false,
-          "likeInfos": {
-            "photos": [
-              "https://picsum.photos/50",
-              "https://picsum.photos/50",
-              "https://picsum.photos/50"
-            ],
-            "description": "Liked by 10,098"
-          },
-          "owner": {
-            "username": "teste123",
-            "photo": "https://picsum.photos/50"
-          },
-          "createdAt": "2022-04-21T12:32"
+          "label": "M",
+          "value": "M"
+        },
+        {
+          "label": "G",
+          "value": "G"
+        },
+        {
+          "label": "XG",
+          "value": "XG"
         }
       ]
     },
-    "categories": [
-      {
-        "id": 1,
-        "cover": "https://picsum.photos/500",
-        "title": "Womans",
-        "items": 1232
-      }
-    ],
-    "products": [
-      {
-        "id": 1,
-        "title": "Large striped cardigan",
-        "price": 1080,
-        "brand": "Raf Simons",
-        "cover": "https://picsum.photos/500",
-        "categoryId": 1,
-        "type": "Shirts",
-        "description": "Enjoy the beauty of italian cotton all over your body. This item will fit your body and warm you up all over and during spring. This item will fit your body and warm you up all over and during spring.  And over and over again, this is the text.",
-        "sizes": [
-          {
-            "label": "P",
-            "value": "P"
-          },
-          {
-            "label": "M",
-            "value": "M"
-          },
-          {
-            "label": "G",
-            "value": "G"
-          },
-          {
-            "label": "XG",
-            "value": "XG"
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Gucci Balaclava",
-        "price": 2500,
-        "brand": "Gucci",
-        "cover": "https://picsum.photos/500",
-        "categoryId": 1,
-        "type": "Balaclava",
-        "description": "Awesome product.",
-        "sizes": [
-          {
-            "label": "P",
-            "value": "P"
-          },
-          {
-            "label": "M",
-            "value": "M"
-          },
-          {
-            "label": "G",
-            "value": "G"
-          },
-          {
-            "label": "XG",
-            "value": "XG"
-          }
-        ]
-      }
-    ],
-    "orders": [
-      {
-        "id": 1,
-        "userId": 1,
-        "step": "waiting",
-        "createdAt": "2022-04-21T12:32",
-        "orderNumber": "1947034",
-        "trackingNumber": "IW3475453455",
-        "totalValue": 80.58,
-        "totalItems": 3
-      },
-      {
-        "userId": 3,
-        "step": "waiting",
-        "createdAt": "2022-04-22T11:42:10-03:00",
-        "orderNumber": 1650637813697,
-        "trackingNumber": 1650638530813,
-        "totalValue": 1079.2,
-        "totalItems": 1,
-        "id": 2
-      },
-      {
-        "step": "waiting",
-        "createdAt": "2022-04-22T12:29:54-03:00",
-        "orderNumber": 1650641359165,
-        "trackingNumber": 1650641394273,
-        "totalValue": 1079.2,
-        "totalItems": 1,
-        "id": 3
-      },
-      {
-        "userId": 3,
-        "step": "delivered",
-        "createdAt": "2022-04-22T12:43:33-03:00",
-        "orderNumber": 1650641635100,
-        "trackingNumber": 1650642213295,
-        "totalValue": 2485,
-        "totalItems": 1,
-        "id": 4
-      }
-    ]
-  }
+    {
+      "id": "2",
+      "title": "Brown jacket",
+      "price": 249,
+      "brand": "My Brand",
+      "cover": "http://tinyurl.com/yw5buh9f",
+      "categoryId": 1,
+      "type": "Coat",
+      "description": "Brown nylon jacket with cotton lining.",
+      "sizes": [
+        {
+          "label": "P",
+          "value": "P"
+        },
+        {
+          "label": "M",
+          "value": "M"
+        },
+        {
+          "label": "G",
+          "value": "G"
+        },
+        {
+          "label": "XG",
+          "value": "XG"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Skirt",
+      "price": 140,
+      "brand": "My Brand",
+      "cover": "http://tinyurl.com/2nkd3hxh",
+      "categoryId": 1,
+      "type": "Skirt",
+      "description": "Black twill skirt with six gold buttons.",
+      "sizes": [
+        {
+          "label": "38",
+          "value": "38"
+        },
+        {
+          "label": "40",
+          "value": "40"
+        },
+        {
+          "label": "42",
+          "value": "42"
+        },
+        {
+          "label": "44",
+          "value": "44"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "White T-Shirt",
+      "price": 250,
+      "brand": "My Brand",
+      "cover": "http://tinyurl.com/73wansdr",
+      "categoryId": 2,
+      "type": "Shirts",
+      "description": "100% cotton plain white t-shirt.",
+      "sizes": [
+        {
+          "label": "P",
+          "value": "P"
+        },
+        {
+          "label": "M",
+          "value": "M"
+        },
+        {
+          "label": "G",
+          "value": "G"
+        },
+        {
+          "label": "XG",
+          "value": "XG"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Black T-Shirt",
+      "price": 199,
+      "brand": "My Brand",
+      "cover": "http://tinyurl.com/bd6765hu",
+      "categoryId": 2,
+      "type": "Shirts",
+      "description": "100% cotton plain black t-shirt.",
+      "sizes": [
+        {
+          "label": "P",
+          "value": "P"
+        },
+        {
+          "label": "M",
+          "value": "M"
+        },
+        {
+          "label": "G",
+          "value": "G"
+        },
+        {
+          "label": "XG",
+          "value": "XG"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Basic Jeans",
+      "price": 269,
+      "brand": "My Brand",
+      "cover": "http://tinyurl.com/42jczpen",
+      "categoryId": 2,
+      "type": "Pants",
+      "description": "Basic jeans with leg details.",
+      "sizes": [
+        {
+          "label": "38",
+          "value": "38"
+        },
+        {
+          "label": "40",
+          "value": "40"
+        },
+        {
+          "label": "42",
+          "value": "42"
+        },
+        {
+          "label": "44",
+          "value": "44"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Glasses",
+      "price": 99,
+      "brand": "My Brand",
+      "cover": "http://tinyurl.com/359s2k88",
+      "categoryId": 3,
+      "type": "Accessories",
+      "description": "Unisex glasses with flexible material and UV lenses.",
+      "sizes": [
+        {
+          "label": "P",
+          "value": "P"
+        },
+        {
+          "label": "M",
+          "value": "M"
+        },
+        {
+          "label": "G",
+          "value": "G"
+        },
+        {
+          "label": "XG",
+          "value": "XG"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Safari Hat",
+      "price": 79,
+      "brand": "My Brand",
+      "cover": "http://tinyurl.com/5n74hzxe",
+      "categoryId": 3,
+      "type": "Accessories",
+      "description": "Safari hat, 100% polyester with size adjustment.",
+      "sizes": [
+        {
+          "label": "P",
+          "value": "P"
+        },
+        {
+          "label": "M",
+          "value": "M"
+        },
+        {
+          "label": "G",
+          "value": "G"
+        },
+        {
+          "label": "XG",
+          "value": "XG"
+        }
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": "3992",
+      "userId": "1",
+      "step": "delivered",
+      "createdAt": "2024-02-16T20:34:51-03:00",
+      "orderNumber": 1708122311367,
+      "trackingNumber": 1708122891266,
+      "totalValue": 982,
+      "totalItems": 1
+    },
+    {
+      "id": "a053",
+      "userId": "1",
+      "step": "delivered",
+      "createdAt": "2024-02-16T21:35:46-03:00",
+      "orderNumber": 1708126420815,
+      "trackingNumber": 1708126546547,
+      "totalValue": 3232,
+      "totalItems": 2
+    },
+    {
+      "id": "c6a4",
+      "userId": "1",
+      "step": "canceled",
+      "createdAt": "2024-02-16T21:42:28-03:00",
+      "orderNumber": 1708126818065,
+      "trackingNumber": 1708126949026,
+      "totalValue": 4510,
+      "totalItems": 2
+    },
+    {
+      "id": "a53a",
+      "userId": "2",
+      "step": "delivered",
+      "createdAt": "2024-02-16T21:50:35-03:00",
+      "orderNumber": 1708127258288,
+      "trackingNumber": 1708127435546,
+      "totalValue": 5482,
+      "totalItems": 3
+    },
+    {
+      "id": "ce1d",
+      "userId": "2",
+      "step": "canceled",
+      "createdAt": "2024-02-17T12:25:57-03:00",
+      "orderNumber": 1708179900939,
+      "trackingNumber": 1708179957470,
+      "totalValue": 279.1,
+      "totalItems": 1
+    },
+    {
+      "id": "0076",
+      "userId": "2",
+      "step": "waiting",
+      "createdAt": "2024-02-17T12:34:19-03:00",
+      "orderNumber": 1708184006544,
+      "trackingNumber": 1708184059765,
+      "totalValue": 235,
+      "totalItems": 1
+    },
+    {
+      "id": "92a8",
+      "userId": "1",
+      "step": "waiting",
+      "createdAt": "2024-02-20T17:17:54-03:00",
+      "orderNumber": 1708460206515,
+      "trackingNumber": 1708460274335,
+      "totalValue": 477.1,
+      "totalItems": 2
+    },
+    {
+      "id": "d58a",
+      "userId": "1",
+      "step": "waiting",
+      "createdAt": "2024-02-20T18:16:07-03:00",
+      "orderNumber": 1708463713887,
+      "trackingNumber": 1708463767776,
+      "totalValue": 431.2,
+      "totalItems": 2
+    }
+  ]
+}
