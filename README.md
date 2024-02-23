@@ -21,7 +21,7 @@ Os dados utilizados na construção desta aplicação foram consumidos de uma AP
 
 ## Layout 🖥️
 
-![apresentacao](src/assets/gif.gif)
+<img width="300" src="https://github.com/wagnerSfarias/look-app/blob/main/src/assets/gif.gif?raw=true">
 
 ## Clone do projeto 
 
